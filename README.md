@@ -1,3 +1,7 @@
+<img width="1440" height="392" alt="image" src="https://github.com/user-attachments/assets/9196efbf-c4d8-423e-b023-810c7908945c" />
+
+
+
 <div align="center">
 
 # 🛡️ LogicBreaker
