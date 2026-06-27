@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.logicbreaker_backups/
+logicbreaker_report/
+.logicbreaker/
+*.sarif
+.env
+.env.*

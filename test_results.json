@@ -1,0 +1,5289 @@
+{
+  "n_iterations": 10,
+  "n_vuln": 44,
+  "n_safe": 25,
+  "perfect_runs": 10,
+  "overall_detection_pct": 100.0,
+  "overall_fp_pct": 0.0,
+  "iterations": [
+    {
+      "iteration": 1,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.28
+    },
+    {
+      "iteration": 2,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.22
+    },
+    {
+      "iteration": 3,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.24
+    },
+    {
+      "iteration": 4,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.25
+    },
+    {
+      "iteration": 5,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.23
+    },
+    {
+      "iteration": 6,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.23
+    },
+    {
+      "iteration": 7,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.23
+    },
+    {
+      "iteration": 8,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.23
+    },
+    {
+      "iteration": 9,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.23
+    },
+    {
+      "iteration": 10,
+      "vuln_detected": 44,
+      "vuln_missed": 0,
+      "vuln_details": [
+        {
+          "file": "01_md5_password.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "02_sha1_password.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "03_hardcoded_secret.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "04_debug_mode.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Debug Mode / Verbose Errors Enabled"
+          ]
+        },
+        {
+          "file": "05_sqli_concat.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "06_sqli_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "07_cmdi.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "08_eval.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "09_path_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "10_ssrf.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "11_xss.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "12_ssti.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "13_open_redirect.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "14_pickle.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "15_yaml_unsafe.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "16_tls_verify_false.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Disabled TLS Certificate Verification",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "17_cors_wildcard.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Permissive CORS Configuration"
+          ]
+        },
+        {
+          "file": "18_weak_random.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Insecure Randomness for Security Value",
+            "Insecure Randomness for Security Value"
+          ]
+        },
+        {
+          "file": "19_insecure_tempfile.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Temporary File"
+          ]
+        },
+        {
+          "file": "20_jwt_noverify.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "JWT Verification Weakness"
+          ]
+        },
+        {
+          "file": "21_des_ecb.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "22_rc4.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "23_hashlib_new_md5.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "24_interproc_sqli.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "25_subprocess_shell_true.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "26_ssrf_urllib.py",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "27_path_join_traversal.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "28_xss_fstring.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "29_ssti_template_obj.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Template Injection"
+          ]
+        },
+        {
+          "file": "30_db_credentials.py",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "01_wp_sqli.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "02_wp_xss.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Reflected Cross-Site Scripting (XSS)"
+          ]
+        },
+        {
+          "file": "03_wp_path_traversal.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        },
+        {
+          "file": "04_wp_cmdi.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "OS Command Injection"
+          ]
+        },
+        {
+          "file": "05_wp_ssrf.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Path Traversal",
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "06_wp_hardcoded_key.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Hardcoded Secret / Credential"
+          ]
+        },
+        {
+          "file": "07_wp_md5.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "Weak / Broken Cryptography",
+            "Weak / Broken Cryptography"
+          ]
+        },
+        {
+          "file": "08_wp_unserialize.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Insecure Deserialization"
+          ]
+        },
+        {
+          "file": "09_wp_open_redirect.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Open Redirect"
+          ]
+        },
+        {
+          "file": "10_wp_sql_and_authz.php",
+          "found": true,
+          "count": 2,
+          "types": [
+            "SQL Injection",
+            "Missing Authentication on Sensitive Action"
+          ]
+        },
+        {
+          "file": "11_wp_sqli_sprintf.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "SQL Injection"
+          ]
+        },
+        {
+          "file": "12_wp_ssrf_remote_get.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Server-Side Request Forgery (SSRF)"
+          ]
+        },
+        {
+          "file": "13_wp_eval.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Code Injection"
+          ]
+        },
+        {
+          "file": "14_wp_include.php",
+          "found": true,
+          "count": 1,
+          "types": [
+            "Path Traversal"
+          ]
+        }
+      ],
+      "safe_correctly_clean": 25,
+      "safe_false_positives": 0,
+      "safe_details": [
+        {
+          "file": "01_md5_cache_key.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_bcrypt.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_parameterized_sql.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_safe_subprocess.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_safe_path.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_ssrf_allowlist.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_xss_escaped.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_secrets_module.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "09_yaml_safe.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "10_safe_redirect.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "11_env_secret.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "12_safe_tempfile.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "13_md5_cache_etag.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "14_sqli_lookalike.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "15_safe_subprocess_shellfalse.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "16_safe_path_realpath.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "17_safe_jinja_autoescape.py",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "01_wp_safe_sql.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "02_wp_safe_xss.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "03_wp_safe_path.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "04_wp_safe_cmd.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "05_wp_safe_auth.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "06_wp_safe_redirect.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "07_wp_safe_intcast.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        },
+        {
+          "file": "08_wp_safe_path_realpath.php",
+          "found": false,
+          "count": 0,
+          "types": []
+        }
+      ],
+      "errors": [],
+      "elapsed_sec": 0.23
+    }
+  ],
+  "per_file": {
+    "vuln": {
+      "01_md5_password.py": 10,
+      "02_sha1_password.py": 10,
+      "03_hardcoded_secret.py": 10,
+      "04_debug_mode.py": 10,
+      "05_sqli_concat.py": 10,
+      "06_sqli_fstring.py": 10,
+      "07_cmdi.py": 10,
+      "08_eval.py": 10,
+      "09_path_traversal.py": 10,
+      "10_ssrf.py": 10,
+      "11_xss.py": 10,
+      "12_ssti.py": 10,
+      "13_open_redirect.py": 10,
+      "14_pickle.py": 10,
+      "15_yaml_unsafe.py": 10,
+      "16_tls_verify_false.py": 10,
+      "17_cors_wildcard.py": 10,
+      "18_weak_random.py": 10,
+      "19_insecure_tempfile.py": 10,
+      "20_jwt_noverify.py": 10,
+      "21_des_ecb.py": 10,
+      "22_rc4.py": 10,
+      "23_hashlib_new_md5.py": 10,
+      "24_interproc_sqli.py": 10,
+      "25_subprocess_shell_true.py": 10,
+      "26_ssrf_urllib.py": 10,
+      "27_path_join_traversal.py": 10,
+      "28_xss_fstring.py": 10,
+      "29_ssti_template_obj.py": 10,
+      "30_db_credentials.py": 10,
+      "01_wp_sqli.php": 10,
+      "02_wp_xss.php": 10,
+      "03_wp_path_traversal.php": 10,
+      "04_wp_cmdi.php": 10,
+      "05_wp_ssrf.php": 10,
+      "06_wp_hardcoded_key.php": 10,
+      "07_wp_md5.php": 10,
+      "08_wp_unserialize.php": 10,
+      "09_wp_open_redirect.php": 10,
+      "10_wp_sql_and_authz.php": 10,
+      "11_wp_sqli_sprintf.php": 10,
+      "12_wp_ssrf_remote_get.php": 10,
+      "13_wp_eval.php": 10,
+      "14_wp_include.php": 10
+    },
+    "safe_fp": {}
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 benchmark/run_benchmark_v2.py)",
+      "Bash(python3 -c ' *)",
+      "Bash(cd *)",
+      "Bash(python3 -m pip list)",
+      "Bash(python3 -c \"import tree_sitter; print\\('tree_sitter', tree_sitter.__version__\\)\")",
+      "Bash(python3 -m pip --version)",
+      "Bash(python3 -m ensurepip --version)",
+      "Bash(python3 -c \"import venv; print\\('venv ok'\\)\")",
+      "Bash(timeout 8 python3 -c \"import urllib.request; print\\(urllib.request.urlopen\\('https://pypi.org/simple/tree-sitter/', timeout=6\\).status\\)\")",
+      "Bash(dpkg -l)",
+      "Read(//tmp/**)",
+      "Bash(timeout 30 python3 -c \"import urllib.request; urllib.request.urlretrieve\\('https://bootstrap.pypa.io/get-pip.py','/tmp/get-pip.py'\\)\")",
+      "Bash(timeout 120 python3 /tmp/get-pip.py --user)",
+      "Bash(python3 -m venv --without-pip /tmp/lbenv)",
+      "Bash(timeout 120 /tmp/lbenv/bin/python /tmp/get-pip.py)",
+      "Bash(/tmp/lbenv/bin/python -m pip --version)",
+      "Bash(timeout 480 /tmp/lbenv/bin/python -m pip install -q tree-sitter tree-sitter-python tree-sitter-javascript tree-sitter-typescript tree-sitter-java tree-sitter-go tree-sitter-php tree-sitter-ruby tree-sitter-c-sharp tree-sitter-c tree-sitter-cpp tree-sitter-rust tree-sitter-kotlin rich requests)",
+      "Bash(echo \"=== EXIT: $? ===\")",
+      "Bash(/tmp/lbenv/bin/python -c \"from languages.ts_loader import available, installed_languages; print\\('ts available:', available\\(\\)\\); print\\('langs:', installed_languages\\(\\)\\)\")",
+      "Bash(/tmp/lbenv/bin/python -c ' *)",
+      "Bash(/tmp/lbenv/bin/python benchmark/run_benchmark_v2.py)",
+      "Bash(/tmp/lbenv/bin/python -c \"import json; d=json.load\\(open\\('benchmark/cases.json'\\)\\); print\\('count:',len\\(d\\)\\); print\\(json.dumps\\(d[0], indent=2\\)\\); print\\('---keys---', list\\(d[0].keys\\(\\)\\)\\)\")",
+      "Bash(cat)",
+      "Bash(/tmp/lbenv/bin/python /tmp/probe.py)",
+      "Bash(/tmp/lbenv/bin/python /tmp/probe2.py)",
+      "Bash(/tmp/lbenv/bin/python /tmp/probe3.py)",
+      "Bash(/tmp/lbenv/bin/python benchmark/build_manifest.py)",
+      "Bash(/tmp/lbenv/bin/python -c \"import core.taint_engine, matchers.extended; print\\('imports OK'\\)\")",
+      "Bash(/tmp/lbenv/bin/python benchmark/run_benchmark.py)"
+    ]
+  }
+}
