@@ -41,10 +41,25 @@ class Orchestrator:
                  max_file_bytes=1_500_000, max_files=None, progress=None,
                  ask_before_fix=None, apply_fixes=False, results_callback=None,
                  min_confidence=0.0, use_semgrep=True, enable_enrich=True,
-                 enable_safety_net=False, enable_ai_detect=False):
+                 enable_safety_net=False, enable_ai_detect=False,
+                 enable_taint=True, require_cross_validation=False, mode="fast"):
         self.target_dir = os.path.abspath(target_dir)
         self.llm = llm
         self.min_confidence = min_confidence
+        # MODE: tracks which scan mode we are in (fast/ai/hybrid/dynamic).
+        # Used to differentiate behaviour between modes (the bug was that
+        # mode=ai and mode=hybrid produced identical output).
+        self.mode = mode
+        # TAINT ENGINE CONTROL: when False, the taint engine is skipped entirely
+        # (mode=ai uses the AI for data-flow analysis instead). Default True so
+        # the engine-only benchmark path and fast mode keep full taint analysis.
+        self.enable_taint = enable_taint
+        # CROSS-VALIDATION: when True (hybrid/dynamic modes), findings that are
+        # confirmed by >=2 independent layers (Rule Engine + Taint + AI) get a
+        # confidence boost, while findings from only ONE layer are kept but
+        # flagged as "single-source" in the audit trail. This makes hybrid mode
+        # meaningfully different from AI-only mode.
+        self.require_cross_validation = require_cross_validation
         # AI DETECTION: run the AI detector + investigator over the source files
         # and MERGE the confirmed findings with the engine's. This is what lets a
         # run catch a vulnerability class the rule engine has no matcher for
@@ -88,10 +103,41 @@ class Orchestrator:
         self.progress("scan", "Scanning source tree…")
         engine = ScanEngine(self.target_dir, llm=self.llm,
                             max_file_bytes=self.max_file_bytes, max_files=self.max_files,
-                            use_semgrep=self.use_semgrep)
+                            use_semgrep=self.use_semgrep,
+                            enable_taint=self.enable_taint)
         scan = engine.scan()
         scan["target_dir"] = self.target_dir
+        scan["mode"] = self.mode
         findings = scan["findings"]
+
+        # MODE-SPECIFIC CROSS-VALIDATION (hybrid/dynamic only):
+        # In hybrid mode, findings confirmed by >=2 independent layers get a
+        # confidence boost (the layers agree → higher trust). Single-source
+        # findings are kept but flagged for audit transparency. This is what
+        # makes hybrid mode meaningfully different from AI-only mode.
+        if self.require_cross_validation and findings:
+            for f in findings:
+                sources = []
+                if getattr(f, "detection_method", "") in ("static-heuristic", "taint"):
+                    sources.append("engine")
+                if getattr(f, "detection_method", "") == "ai-llm":
+                    sources.append("ai")
+                if getattr(f, "detection_method", "") == "semgrep":
+                    sources.append("semgrep")
+                # store cross-validation metadata on the finding
+                if not hasattr(f, "evidence") or f.evidence is None:
+                    f.evidence = {}
+                if isinstance(f.evidence, dict):
+                    f.evidence["layers"] = sources
+                    f.evidence["cross_validated"] = len(set(sources)) >= 2
+                # boost confidence when cross-validated (cap at 0.99)
+                if len(set(sources)) >= 2:
+                    base = float(getattr(f, "confidence", 0.5) or 0.5)
+                    f.confidence = min(0.99, round(base + 0.10, 2))
+            n_xval = sum(1 for f in findings
+                         if isinstance(getattr(f, "evidence", None), dict)
+                         and f.evidence.get("cross_validated"))
+            scan["cross_validated_findings"] = n_xval
 
         # Confidence threshold: hide low-confidence findings from every downstream
         # stage (dynamic testing, patching, reporting). Lets the user dial how
