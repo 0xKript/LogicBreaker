@@ -81,6 +81,9 @@ class RaceConditionMatcher(BaseMatcher):
                 "(`UPDATE ... SET x = x - :n WHERE x >= :n`, `SELECT ... FOR UPDATE`), or "
                 "operate on a file handle/descriptor rather than re-resolving the path."
             ),
+            # Anchor: the comparison / guard line is the actual race check
+            anchor_pattern=[r"\b(if|while|elseif|when)\s*\([^)]*(>=|<=|>|<|==)",
+                           r"\b(?:balance|stock|count|quota|exists|file_exists|is_file)\b"],
         )]
 
 
@@ -124,6 +127,9 @@ class PriceManipulationMatcher(BaseMatcher):
                 "Validate and clamp every client-supplied numeric value server-side immediately "
                 "on input; recompute money from trusted catalogue data, never from client totals."
             ),
+            # Anchor: the first risky var assignment or arithmetic use
+            anchor_pattern=[rf"\b{re.escape(p)}\b\s*[-+*/]" for p in risky[:1]] +
+                           [rf"\b{re.escape(p)}\b\s*=" for p in risky[:1]],
         )]
 
 
@@ -179,6 +185,12 @@ class IDORMatcher(BaseMatcher):
                 "(e.g. `obj.owner_id == current_user.id`); prefer deriving the owner from the "
                 "session over trusting a client id."
             ),
+            # Anchor: the first .find/.get/.filter/.where call (the actual fetch)
+            anchor_pattern=[
+                r"\.get\s*\(", r"\.find\s*\(", r"\.fetch\s*\(",
+                r"\.query\s*\(", r"\.filter\s*\(", r"where\s*\(",
+                r"select\s+", r"from\s+", r"->find\s*\(",
+            ],
         )]
 
 
@@ -219,6 +231,12 @@ class SQLInjectionMatcher(BaseMatcher):
                     "Use parameterized queries / prepared statements with bound parameters; never "
                     "concatenate untrusted input into SQL."
                 ),
+                anchor_pattern=[
+                    r"(?:select|insert|update|delete)\b.*[+%]",
+                    r"[+%].*(?:select|insert|update|delete)\b",
+                    r"\b(?:execute|query|cursor)\s*\(",
+                ],
+                anchor_flags=re.IGNORECASE,
             )]
         return []
 
@@ -282,6 +300,11 @@ class BrokenAuthMatcher(BaseMatcher):
                     "Resolve the principal's role server-side from the authenticated session or "
                     "database; never trust a role value supplied by the client."
                 ),
+                anchor_pattern=[
+                    r"\b(?:role|is_admin|is_superuser|privilege|permission|user_type|access_level)\b\s*(?:==|===|!=|!==|=)",
+                    r"\b(?:role|is_admin|is_superuser|privilege|permission|user_type|access_level)\b",
+                ],
+                anchor_flags=re.IGNORECASE,
             )]
         return []
 
@@ -393,6 +416,10 @@ class WeakAuthMatcher(BaseMatcher):
                 "query string, store only hashed secrets, and compare with a constant-time function "
                 "like hmac.compare_digest."
             ),
+            anchor_pattern=[
+                rf"\b{re.escape(compared_var)}\b\s*(?:==|!=|\.equals\()" if compared_var else r"==",
+                r"==\s*\w",
+            ],
         )]
 
 
@@ -448,6 +475,12 @@ class NegativeQuantityMatcher(BaseMatcher):
                 f"manipulate inventory."
             ),
             remediation="Reject non-positive quantities (and enforce a sane upper bound) on input.",
+            anchor_pattern=[
+                rf"\b{re.escape(p)}\b\s*[-+*/]" for p in qty[:1]
+            ] + [
+                r"\b(?:qty|quantity|num_items|item_count|order_qty)\w*\s*[-+*/]",
+            ],
+            anchor_flags=re.IGNORECASE,
         )]
 
 
@@ -522,6 +555,7 @@ class HardcodedSecretMatcher(BaseMatcher):
                     ),
                     exploit_scenario="Anyone with read access to the repository obtains the secret.",
                     remediation="Move secrets to environment variables or a secrets manager; rotate the exposed value.",
+                    anchor_pattern=pattern,
                 )]
         return []
 
@@ -579,6 +613,11 @@ class MissingRateLimitMatcher(BaseMatcher):
             ),
             exploit_scenario="Automate thousands of attempts against this endpoint to brute force credentials or OTPs.",
             remediation="Add per-account and per-IP rate limiting / exponential backoff / lockout.",
+            anchor_pattern=[
+                r"\b(?:password|passwd|check_password|verify_password|bcrypt|compare_digest|hashlib)\b",
+                r"\b(?:select|fetchone|fetchall|authenticate|credential)\b",
+            ],
+            anchor_flags=re.IGNORECASE,
         )]
 
 
