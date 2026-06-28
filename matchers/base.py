@@ -21,6 +21,7 @@ syntax-tree-derived signals and language-aware keyword/operator tables rather
 than one language's AST only.
 """
 
+import re
 from dataclasses import dataclass, field, asdict
 from typing import List, Optional
 
@@ -88,8 +89,57 @@ class BaseMatcher:
 
     # -- helpers shared by subclasses ---------------------------------
     @staticmethod
+    def _find_line_in_unit(unit, pattern, flags=0):
+        """Resolve the ACTUAL line number (1-based, in the file) of the first
+        line in the unit's source that matches `pattern`.
+
+        BUG FIX: previously the matchers reported `unit['lineno']` (the
+        function-definition start line) for every finding inside that function.
+        So a SQL injection on line 115 inside a function starting on line 110
+        was reported as 'line 110'. This helper walks the unit's own source
+        (which tree-sitter guarantees starts at `unit['lineno']`) and returns
+        the precise file line of the match.
+
+        Returns `unit['lineno']` (function start) as a safe fallback when the
+        pattern doesn't match -- preserves backwards compatibility for any
+        matcher that passes a wrong/missing pattern.
+        """
+        func_start = unit.get("lineno", 0) or 0
+        src = unit.get("source", "") or ""
+        if not src:
+            return func_start
+        try:
+            rx = re.compile(pattern, flags)
+        except re.error:
+            return func_start
+        for i, line in enumerate(src.split("\n")):
+            if rx.search(line):
+                return func_start + i
+        return func_start  # fallback: function start (old behaviour)
+
+    @staticmethod
     def _finding(matcher, unit, *, severity, confidence, explanation,
-                 exploit_scenario="", remediation="", detection_method="static-heuristic"):
+                 exploit_scenario="", remediation="",
+                 detection_method="static-heuristic",
+                 anchor_pattern=None, anchor_flags=0):
+        """Build a Finding.
+
+        `anchor_pattern` (optional regex, str OR list[str]): if provided, the
+        finding's `lineno` is resolved to the FIRST line inside the unit's
+        source that matches the pattern. This is the FIX for the long-standing
+        bug where matchers reported the function-start line for every finding.
+        If the pattern doesn't match (or isn't provided), we fall back to
+        `unit['lineno']` (function start) to preserve backwards compatibility.
+        """
+        func_start = unit.get("lineno", 0) or 0
+        lineno = func_start
+        if anchor_pattern is not None:
+            patterns = anchor_pattern if isinstance(anchor_pattern, list) else [anchor_pattern]
+            for pat in patterns:
+                resolved = BaseMatcher._find_line_in_unit(unit, pat, anchor_flags)
+                if resolved != func_start:
+                    lineno = resolved
+                    break
         return Finding(
             matcher_id=matcher.id,
             type=matcher.name,
@@ -99,7 +149,7 @@ class BaseMatcher:
             file=unit["file"],
             language=unit["language"],
             function=unit.get("qualname", unit.get("name", "<module>")),
-            lineno=unit.get("lineno", 0),
+            lineno=lineno,
             end_lineno=unit.get("end_lineno", 0),
             source=unit.get("source", ""),
             explanation=explanation,
