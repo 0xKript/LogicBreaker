@@ -310,11 +310,34 @@ def main():
     # mode determines which stages run:
     #   fast    — engine only, no AI, no dynamic
     #   ai      — AI only (engine still runs for merge, but AI is primary)
-    #   hybrid  — engine + AI (merged, cross-validated)
+    #   hybrid  — engine + AI (merged, cross-validated, both layers must agree)
     #   dynamic — engine + AI + live exploitation (launches the app)
     enable_dynamic = (mode == "dynamic") and not args.no_dynamic
     enable_ai = bool(llm and getattr(llm, "available", False)) and not args.no_ai_detect
     enable_patch = not args.no_patch
+
+    # MODE-SPECIFIC LAYER CONTROL (fixes the bug where mode=ai and mode=hybrid
+    # produced identical results because both set enable_ai=True and nothing else
+    # differed). Now each mode explicitly controls which detection layers run:
+    #   - mode=ai     → AI primary, Taint Engine OFF, Rule Engine for merge only
+    #   - mode=hybrid → Rule + Taint + AI ALL ON, cross-validation (findings
+    #                   confirmed by >=2 layers get a confidence boost)
+    #   - mode=dynamic→ same as hybrid + live exploitation
+    #   - mode=fast   → Rule + Taint ON, AI OFF
+    if mode == "ai" and enable_ai:
+        # AI-primary: skip the Taint Engine (the AI does the deep data-flow
+        # analysis). Rule Engine still runs for fast regex catches + merge.
+        enable_taint = False
+        require_cross_validation = False
+    elif mode in ("hybrid", "dynamic") and enable_ai:
+        # Hybrid: all layers on; cross-validation boosts confidence when
+        # multiple layers agree on the same finding.
+        enable_taint = True
+        require_cross_validation = True
+    else:
+        # fast mode (or AI unavailable) — engine-only, no AI cross-validation
+        enable_taint = True
+        require_cross_validation = False
 
     sandbox_mgr = SandboxManager() if enable_dynamic else None
 
@@ -408,6 +431,9 @@ def main():
         enable_enrich=not args.no_enrich,
         enable_safety_net=args.deep,
         enable_ai_detect=enable_ai,
+        enable_taint=enable_taint,
+        require_cross_validation=require_cross_validation,
+        mode=mode,
     )
     try:
         report_data, findings, scan = orch.run()
