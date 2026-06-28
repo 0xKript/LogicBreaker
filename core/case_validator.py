@@ -107,11 +107,34 @@ class Investigator:
         checks["family"] = family
 
         # ---- Check 1: ANCHOR ------------------------------------------
-        try:
-            line_no = self._anchor(case.snippet, lines)
-        except Exception as e:
-            checks["anchor_error"] = f"{type(e).__name__}: {e}"
-            line_no = 0
+        # The AI now ALSO returns `claimed_line` (1-based, as shown in the
+        # numbered prompt). We use the AI's claim as the PRIMARY source if:
+        #   (a) it's a valid 1-based line number within the code, AND
+        #   (b) the snippet at that line matches the AI's snippet text.
+        # Otherwise we fall back to the substring anchor search.
+        claimed = int(getattr(case, "claimed_line", 0) or 0)
+        line_no = 0
+        if 1 <= claimed <= len(lines):
+            cand = _norm(lines[claimed - 1])
+            snip = _norm(case.snippet)
+            # exact match OR substantial containment (same rule as _anchor)
+            if cand and snip and (cand == snip or snip in cand or cand in snip):
+                shorter = min(len(snip), len(cand))
+                longer = max(len(snip), len(cand))
+                if longer == 0 or shorter / longer >= 0.70:
+                    line_no = claimed
+                    checks["anchor_source"] = "ai_claimed_line"
+        if not line_no:
+            try:
+                line_no = self._anchor(case.snippet, lines)
+                checks["anchor_source"] = "substring_search"
+            except Exception as e:
+                checks["anchor_error"] = f"{type(e).__name__}: {e}"
+                line_no = 0
+        # If both methods disagree, record it (transparency, not a rejection).
+        if (claimed and line_no and claimed != line_no
+                and checks.get("anchor_source") == "substring_search"):
+            checks["claimed_line_mismatch"] = f"AI said line {claimed}, anchor resolved to {line_no}"
         checks["anchor"] = bool(line_no)
         if not line_no:
             return Verdict(case, False, 0,
