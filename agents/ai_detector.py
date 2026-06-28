@@ -72,8 +72,15 @@ class CaseFile:
     category: str = ""            # e.g. "injection", "crypto", "config", "authz"
     family: str = ""              # "flow" | "property" | "broken-mitigation"
 
-    # Filled in by the investigator later (NOT trusted from the AI):
-    line: int = 0                 # real line number, resolved by anchoring
+    # The AI's CLAIMED line number (1-based, as shown in the numbered prompt).
+    # NOT trusted blindly — the investigator verifies it against the snippet.
+    # If the AI's claim matches the anchor search, we use it (more reliable
+    # than substring search when there are duplicate lines). If it disagrees,
+    # the investigator's anchor search wins and we mark `claimed_line_mismatch`.
+    claimed_line: int = 0
+
+    # Filled in by the investigator after verification:
+    line: int = 0                 # final, anchor-verified line number
     anchored: bool = False        # did the snippet match a real line?
 
     # Anti-hallucination metadata (set by the detector itself):
@@ -242,6 +249,7 @@ def build_detection_prompt(numbered_code: str, language: str) -> tuple[str, str]
         '      "family": "<flow | property | broken-mitigation>",\n'
         '      "severity": "CRITICAL|HIGH|MEDIUM|LOW|INFO",\n'
         '      "confidence": <integer 0-100>,\n'
+        '      "line": <integer 1-based: the EXACT line number from the numbered code below where the snippet appears>,\n'
         '      "snippet": "<the SINGLE most dangerous line, copied VERBATIM from the code>",\n'
         '      "source": "<for a data-flow bug: the attacker-controlled input expression. For a property/config bug, write N/A>",\n'
         '      "sink": "<the dangerous function/operation that appears on the snippet line>",\n'
@@ -261,15 +269,16 @@ def build_detection_prompt(numbered_code: str, language: str) -> tuple[str, str]
         "Hard rules:\n"
         "1. `snippet` MUST be copied character-for-character from a line below.\n"
         "2. `sink` MUST be a substring that occurs on the snippet line.\n"
-        "3. Report EVERY distinct vulnerability you find -- including partial\n"
+        "3. `line` MUST be the EXACT 1-based line number where the snippet appears in the numbered code below. Read the number from the leftmost column. Do NOT approximate; do NOT count from a different start.\n"
+        "4. Report EVERY distinct vulnerability you find -- including partial\n"
         "   fixes that have gaps. A 90%-correct allowlist is STILL a vuln if\n"
         "   the missing 10% lets an attacker in.\n"
-        "4. If a code line calls a function with the wrong signature (e.g.\n"
+        "5. If a code line calls a function with the wrong signature (e.g.\n"
         "   yaml.safe_load(data, Loader=yaml.Loader)) and that call will raise\n"
         "   TypeError, REPORT IT -- the endpoint is broken and the developer's\n"
         "   intent to mitigate has failed.\n"
-        "5. If there are genuinely no vulnerabilities, return {\"findings\": []}.\n"
-        "6. NEVER invent a vulnerability. If you are not sure, do not report.\n\n"
+        "6. If there are genuinely no vulnerabilities, return {\"findings\": []}.\n"
+        "7. NEVER invent a vulnerability. If you are not sure, do not report.\n\n"
         f"CODE ({language}):\n"
         f"```{language}\n{numbered_code}\n```"
     )
@@ -348,6 +357,16 @@ def _parse_case_files(reply, language: str, file_path: str) -> list:
             df = []
         df = [str(x) for x in df if str(x).strip()]
 
+        # Parse the AI's claimed line number (1-based). Validate it's a
+        # positive integer; if missing/invalid, default to 0 (the
+        # investigator will fall back to substring anchor search).
+        try:
+            claimed_line = int(item.get("line", 0) or 0)
+            if claimed_line < 0:
+                claimed_line = 0
+        except (TypeError, ValueError):
+            claimed_line = 0
+
         cases.append(CaseFile(
             name=str(item.get("name", "")).strip(),
             cwe=_normalize_cwe(item.get("cwe")),  # may be ""
@@ -366,6 +385,7 @@ def _parse_case_files(reply, language: str, file_path: str) -> list:
             file=file_path,
             impact=str(item.get("impact", "")).strip(),
             fix=str(item.get("fix", "")).strip(),
+            claimed_line=claimed_line,
         ))
     return cases
 
