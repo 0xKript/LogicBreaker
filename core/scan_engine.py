@@ -58,7 +58,8 @@ def _cwe_ok(cwe):
 
 class ScanEngine:
     def __init__(self, target_dir, llm=None, enabled_matchers=None,
-                 max_file_bytes=1_500_000, max_files=None, use_semgrep=False):
+                 max_file_bytes=1_500_000, max_files=None, use_semgrep=False,
+                 enable_taint=True):
         self.target_dir = target_dir
         self.llm = llm
         self.matchers = load_matchers(enabled_matchers)
@@ -68,6 +69,11 @@ class ScanEngine:
         # the deterministic engine path (and the benchmark) is never perturbed;
         # the orchestrator / CLI turns it on for real scans.
         self.use_semgrep = use_semgrep
+        # TAINT ENGINE CONTROL: when False, the taint engine is skipped entirely.
+        # mode=ai uses the AI for data-flow analysis instead, so it sets this to
+        # False. Default True so the engine-only benchmark path and fast/hybrid
+        # modes keep full taint analysis.
+        self.enable_taint = enable_taint
         # Phase F (rule 6): cache LLM JSON responses by hash(prompt)+model so a
         # re-scan of unchanged code is never re-billed (in-memory always; on disk
         # when LB_LLM_CACHE points at a file).
@@ -285,6 +291,10 @@ class ScanEngine:
         overlaps an existing one, we keep the existing one but upgrade its
         confidence and detection method (a real source->sink path is stronger
         evidence than a text pattern)."""
+        # MODE CONTROL: when enable_taint is False (mode=ai), the taint engine
+        # is skipped entirely -- the AI detector does the data-flow analysis.
+        if not getattr(self, "enable_taint", True):
+            return findings
         from core import taint_engine as TE
         from matchers.base import Finding
 
